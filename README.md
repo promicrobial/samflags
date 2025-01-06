@@ -26,6 +26,7 @@ Access the live tool: [SAM Flag Analyzer](https://promicrobial.github.io/samflag
    - Warning if flag combination doesn't match input number
 
 Common SAM flag examples:
+
 - `147` = 128 + 16 + 2 + 1 (last segment + reverse complemented + properly aligned + multiple segments)
 - `99` = 64 + 32 + 2 + 1 (first segment + next segment reversed + properly aligned + multiple segments)
 - `83` = 64 + 16 + 2 + 1 (first segment + reverse complemented + properly aligned + multiple segments)
@@ -37,7 +38,7 @@ Clone the repository and open `index.html` in your browser.
 ```bash
 git clone https://github.com/yourusername/samflags.git
 cd samflags
-``
+```
 
 ## SAM Flag Reference Table
 
