@@ -1,4 +1,6 @@
-# ![logo.svg](_assets/logo.svg) SAM Flag Analyzer
+<p align="center"> <img src="_assets/logo.svg" alt="SAM Flag Analyzer Logo"  width=100px height=100px> </p>
+
+<h1 align="center">SAM Flag Analyzer</h1>
 
 A simple, browser-based tool for analyzing SAM (Sequence Alignment/Map) format flags. This tool helps bioinformaticians and researchers quickly decode SAM flag values into their constituent bits and corresponding meanings.
 
