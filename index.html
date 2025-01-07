@@ -7,43 +7,58 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="style.css" rel="stylesheet" />
 </head>
-<body class="bg-gray-50">
-    <div class="container">
-        <h1 class="title">SAM Flag Analyzer</h1>
-        
-        <div class="description">
-            <p> Alignment files produced by <a href="https://www.htslib.org/doc/samtools.html">samtools</a> contain FLAG values that are a combination of several bitwise FLAGs giving information about a particular alignment.</p>
+<body>
+    <div class="page-wrapper">
+        <div class="container">
+            <!-- Header with logo and title -->
+            <header class="header-container">
+                <!-- Logo -->
+                <div class="logo-wrapper">
+                    <a href="https://github.com/promicrobial/samflags" class="header-link" target="_blank" rel="noopener noreferrer" aria-label="View SAM Flag Analyzer on GitHub">
+                        <img src="_assets/logo.svg" alt="SAM Flag Analyzer Logo" class="logo">
+                    </a>
+                </div>
+                <div class="header-separator"></div>
+                <h1 class="title">SAM Flag Analyzer</h1>
+            </header>
 
-            <p> This tool helps to determine which FLAGs are represented by the FLAG value in the SAM file.</p>
+            <div class="description">
+                <p> Alignment files produced by <a href="https://www.htslib.org/doc/samtools.html">samtools</a> contain FLAG values that are a combination of several bitwise FLAGs giving information about a particular alignment.<br>This tool helps to determine which FLAGs are represented by the FLAG value in the SAM file.</p>
+            </div>
 
-            <p>Enter a SAM flag number to see which flags are active.</p>
+            <hr>
+
+            <div class="instructions">
+                <p>Enter a SAM flag number to see which flags are active.</p>
+            </div>
+
+
+            <div class="input-container">
+                <input type="number" id="flagInput"
+                        class="flag-input"
+                        placeholder="Enter SAM flag number (e.g., 147)">
+            </div>
+
+            <div id="results" class="results-container"></div>
+
+            <div class="reference-section">
+                <h2 class="subtitle">Reference Table</h2>
+                <table class="reference-table">
+                    <thead>
+                        <tr>
+                            <th>Bit</th>
+                            <th>Hex</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody id="referenceTableBody"></tbody>
+                </table>
+
+                <p>More details about the SAM file format can be found <a href="https://github.com/samtools/hts-specs/blob/master/SAMv1.pdf">here</a></p>
+            </div>
         </div>
 
-        <div class="input-container">
-            <input type="number" id="flagInput" 
-                   class="flag-input" 
-                   placeholder="Enter SAM flag number (e.g., 147)">
-        </div>
-
-        <div id="results" class="results-container"></div>
-
-        <div class="reference-section">
-            <h2 class="subtitle">Reference Table</h2>
-            <table class="reference-table">
-                <thead>
-                    <tr>
-                        <th>Bit</th>
-                        <th>Hex</th>
-                        <th>Description</th>
-                    </tr>
-                </thead>
-                <tbody id="referenceTableBody"></tbody>
-            </table>
-
-            <p>More details about the SAM file format can be found <a href="https://github.com/samtools/hts-specs/blob/master/SAMv1.pdf">here</a></p>
-        </div>
+        <script src="script.js"></script>
     </div>
-
-    <script src="script.js"></script>
 </body>
 </html>

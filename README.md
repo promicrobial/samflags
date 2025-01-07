@@ -1,4 +1,4 @@
-# SAM Flag Analyzer
+# ![logo.svg](_assets/logo.svg) SAM Flag Analyzer
 
 A simple, browser-based tool for analyzing SAM (Sequence Alignment/Map) format flags. This tool helps bioinformaticians and researchers quickly decode SAM flag values into their constituent bits and corresponding meanings.
 
@@ -14,7 +14,7 @@ A simple, browser-based tool for analyzing SAM (Sequence Alignment/Map) format f
 
 Access the live tool: [SAM Flag Analyzer](https://promicrobial.github.io/samflags/)
 
-![Screenshot of SAM Flag Analyzer](screenshot.png)
+![Screenshot of SAM Flag Analyzer](_assets/screenshot.png)
 
 ## Usage
 

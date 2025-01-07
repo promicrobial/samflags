@@ -1,61 +1,218 @@
-/* Base styles */
-body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    line-height: 1.6;
-    color: #333;
+/* ==========================================================================
+    CSS Custom Properties (Variables)
+    These are reusable values that can be used throughout the stylesheet
+   ========================================================================== */
+
+:root {
+    /* Color Palette - Theme Colors */
+    --rosewater: #f2d5cf;
+    --flamingo: #eebebe;
+    --pink: #f4b8e4;
+    --mauve: #ca9ee6;
+    --red: #e78284;
+    --maroon: #ea999c;
+    --peach: #ef9f76;
+    --yellow: #e5c890;
+    --green: #a6d189;
+    --teal: #81c8be;
+    --blue: #8CAAEE;
+    --sky: #99D1DB;
+    --sapphire: #85C1DC;
+
+    /* Background Colors - From darkest to lightest */
+    --crust: #232634;     /* Darkest background, used for borders */
+    --mantle: #292c3c;    /* Slightly darker background */
+    --base: #303446;      /* Base color for main backgrounds */
+    
+    /* UI Surface Colors - For different interface levels */
+    --surface0: #414559;  /* Lighter background for UI elements */
+    --surface1: #51576d;  /* Even lighter background for hover states */
+    --surface2: #626880;  /* For selected items */
+    
+    /* Text Colors - From primary to subtle */
+    --text: #c6d0f5;      /* Main text color */
+    --subtext1: #b5bfe2;  /* Secondary text */
+    --subtext0: #a5adce;  /* Tertiary text */
+    --overlay0: #737994;  /* For disabled or less prominent elements */
 }
 
+/* ==========================================================================
+    Base Styles
+   ========================================================================== */
+
+body {
+    /* Set default font stack with system fonts for optimal performance */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--base);
+    background-color: var(--base);
+    /* Create a responsive centered layout */
+    width: 75%; /* takes up a certain % of the viewport width */
+    max-width: 1200px; /* but never exceeds 1200px */
+    margin: 0 auto !important; /* centers the body horizontally */
+}
+
+.page-wrapper {
+    background-color: var(--base); /* color for the main content area */
+    padding: 2rem;
+    min-height: 100vh; /* makes the content area full height */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1); /* optional: adds depth */
+}
+
+/* Container for main content */
 .container {
     max-width: 800px;
-    margin: 0 auto;
     padding: 20px;
 }
 
-/* Typography */
+/* Basic paragraph styling */
+p {
+    color: var(--text);
+    padding: 1rem 0;
+}
+
+/* ==========================================================================
+    Typography
+    Text-related styles including headings and descriptions
+   ========================================================================== */
+
 .title {
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-    color: #2d3748;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 700;
+    font-size: 3rem;
+    color: var(--text);
 }
 
 .subtitle {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 0.5rem;
-    color: #2d3748;
+    color: var(--subtext1);
 }
 
 .description {
     margin: 20px 0;
-    color: #4a5568;
+    color: var(--subtext0);
+    font-size: 1.25rem;
 }
 
-/* Input styling */
+/* ==========================================================================
+    Link Styles
+    Styling for various types of links
+   ========================================================================== */
+
+a {
+    outline-color: transparent;
+}
+
+a:link {
+    color: var(--blue);
+}
+
+a:visited {
+    color: var(--peach);
+}
+
+a:hover {
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Header Link Styles */
+.header-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: inherit;
+    transition: transform 0.2s ease;
+}
+
+.header-link:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+    color: inherit;
+}
+
+.header-link:focus {
+    outline: 2px solid var(--blue);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* Logo Link Styles */
+.logo-link {
+    display: inline-flex;
+    align-items: center;
+    transition: opacity 0.2s ease;
+    position: relative;
+}
+
+.logo-link:hover {
+    opacity: 0.9;
+}
+
+/* ==========================================================================
+    Header Styles
+    Styles for the header section
+   ========================================================================== */
+
+.header-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid var(--surface0);
+}
+
+.header-separator {
+    height: 6rem;
+    width: 1px;
+    background-color: var(--surface0);
+    margin: 0 1rem;
+}
+
+.logo {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: rotate(360deg);
+}
+
+/* ==========================================================================
+    Form Elements
+    Styles for input fields and form-related components
+   ========================================================================== */
+
 .input-container {
     margin-bottom: 1rem;
 }
 
 .flag-input {
-    width: 100%;
+    width: 30%;
     padding: 0.5rem;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--surface0);
     border-radius: 0.375rem;
     font-size: 1rem;
+    color: var(--text);
+    background-color: var(--mantle);
 }
 
 .flag-input:focus {
     outline: none;
-    border-color: #4299e1;
-    box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+    border-color: var(--surface0);
+    box-shadow: 0 0 0 3px var(--surface1);
 }
 
-/* Results section */
-.results-container {
-    margin-bottom: 1rem;
-}
+/* ==========================================================================
+    Table Styles
+    Styles for tables and reference sections
+   ========================================================================== */
 
-/* Table styles */
 .reference-section {
     margin-top: 2rem;
 }
@@ -64,7 +221,7 @@ body {
     width: 100%;
     border-collapse: collapse;
     margin: 1rem 0;
-    background-color: white;
+    background-color: var(--base);
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
 }
 
@@ -72,42 +229,77 @@ body {
 .reference-table td {
     padding: 0.75rem;
     text-align: left;
-    border: 1px solid #e2e8f0;
+    border: 1px solid var(--subtext1);
+    color: var(--text);
 }
 
 .reference-table th {
-    background-color: #f7fafc;
+    background-color: var(--crust);
     font-weight: 600;
-    color: #4a5568;
+    color: var(--text);
 }
 
 .reference-table tr:nth-child(even) {
-    background-color: #f9fafb;
+    background-color: var(--mantle);
 }
 
 .reference-table tr:hover {
-    background-color: #f4f5f7;
+    background-color: var(--crust);
 }
 
-/* Warning message */
+/* ==========================================================================
+    Utility Classes
+    Reusable utility classes and status indicators
+   ========================================================================== */
+
+.results-container {
+    margin-bottom: 1rem;
+}
+
 .warning {
-    color: #e53e3e;
+    color: var(--red);
     margin-bottom: 0.5rem;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+    Media Queries
+    Responsive design adjustments for different screen sizes
+   ========================================================================== */
+
 @media (max-width: 640px) {
     .container {
         padding: 1rem;
     }
-
+    
     .title {
         font-size: 1.5rem;
     }
-
+    
     .reference-table th,
     .reference-table td {
         padding: 0.5rem;
         font-size: 0.875rem;
+    }
+    
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .header-separator {
+        display: none;
+    }
+    
+    .logo {
+        width: 48px;
+        height: 48px;
+    }
+
+    body {
+        width: 100%; /* Takes full width on mobile */
+    }
+    
+    .page-wrapper {
+        padding: 1rem; /* Reduced padding on mobile */
     }
 }
